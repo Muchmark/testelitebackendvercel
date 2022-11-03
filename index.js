@@ -16,7 +16,9 @@ const fileStorageEngine = multer.diskStorage({
 
 const upload = multer({ storage: fileStorageEngine })
 
-
+app.get("/", (req, res) => {
+    res.status(200).send("welcome to home page..")
+})
 
 app.post("/myupload", upload.single('myfile'), (req, res) => {
     console.log(req.file)
